@@ -38,12 +38,16 @@ void main ( void )
                     verde( 1 );
                     verde_ped( 0 );
                     vermelho_ped( 1 );
-                    if( botao() )
-                        estado = 3;
+                    t = 6000;
+                    estado = 3;
+//                    if( botao() )
+//                        estado = 3;
                     break;
             case 3:
-                    t = 6000;
-                    estado = 4;
+                    if( botao() )
+                        estado = 4;
+//                    t = 6000;
+//                    estado = 4;
                     break;
             case 4:
                     
@@ -51,20 +55,20 @@ void main ( void )
                     --t;
                     if( t <= 0 )
                         
-                    __delay_ms(1000);    
-                    PORTB = 0x7D;
-                    __delay_ms(1000);
-                    PORTB = 0x6D;
-                    __delay_ms(1000);
-                    PORTB = 0x66;
-                    __delay_ms(1000);
-                    PORTB = 0x4F;
-                    __delay_ms(1000);
-                    PORTB = 0x5B;
-                    __delay_ms(1000);
-                    PORTB = 0x06;
-                    __delay_ms(1000);
-                    PORTB = 0x3F;
+//                    __delay_ms(1000);    
+//                    PORTB = 0x7D;
+//                    __delay_ms(1000);
+//                    PORTB = 0x6D;
+//                    __delay_ms(1000);
+//                    PORTB = 0x66;
+//                    __delay_ms(1000);
+//                    PORTB = 0x4F;
+//                    __delay_ms(1000);
+//                    PORTB = 0x5B;
+//                    __delay_ms(1000);
+//                    PORTB = 0x06;
+//                    __delay_ms(1000);
+//                    PORTB = 0x3F;
                     
                     estado = 5;
                     break;
@@ -82,15 +86,15 @@ void main ( void )
                     --t;
                     if( t <= 0 )
                         
-                    PORTB = 0x66;
-                    __delay_ms(1000);
-                    PORTB = 0x4F;
-                    __delay_ms(1000);
-                    PORTB = 0x5B;
-                    __delay_ms(1000);
-                    PORTB = 0x06;
-                    __delay_ms(1000);
-                    PORTB = 0x3F;
+//                    PORTB = 0x66;
+//                    __delay_ms(1000);
+//                    PORTB = 0x4F;
+//                    __delay_ms(1000);
+//                    PORTB = 0x5B;
+//                    __delay_ms(1000);
+//                    PORTB = 0x06;
+//                    __delay_ms(1000);
+//                    PORTB = 0x3F;
                     
                     estado = 7;
                     break;
@@ -108,29 +112,31 @@ void main ( void )
                     --t;
                     if( t <= 0 )
                         
-                    PORTB = 0x6F;
-                    __delay_ms(1000);
-                    PORTB = 0x7F;    
-                    __delay_ms(1000);
-                    PORTB = 0x07;
-                    __delay_ms(1000);    
-                    PORTB = 0x7D;
-                    __delay_ms(1000);
-                    PORTB = 0x6D;
-                    __delay_ms(1000);
-                    PORTB = 0x66;
-                    __delay_ms(1000);
-                    PORTB = 0x4F;
-                    __delay_ms(1000);
-                    PORTB = 0x5B;
-                    __delay_ms(1000);
-                    PORTB = 0x06;
-                    __delay_ms(1000);
-                    PORTB = 0x3F;
-                    __delay_ms(1000);
-                    PORTB = 0;    
+//                    PORTB = 0x6F;
+//                    __delay_ms(1000);
+//                    PORTB = 0x7F;    
+//                    __delay_ms(1000);
+//                    PORTB = 0x07;
+//                    __delay_ms(1000);    
+//                    PORTB = 0x7D;
+//                    __delay_ms(1000);
+//                    PORTB = 0x6D;
+//                    __delay_ms(1000);
+//                    PORTB = 0x66;
+//                    __delay_ms(1000);
+//                    PORTB = 0x4F;
+//                    __delay_ms(1000);
+//                    PORTB = 0x5B;
+//                    __delay_ms(1000);
+//                    PORTB = 0x06;
+//                    __delay_ms(1000);
+//                    PORTB = 0x3F;
+//                    __delay_ms(1000);
+//                    PORTB = 0;
+                    
                     estado = 2;
                     break;
         }
+        disp7seg(t/1000);
     }
 }
