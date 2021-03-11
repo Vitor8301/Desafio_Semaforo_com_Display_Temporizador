@@ -12,6 +12,7 @@
 #include "semaforo.h" 
 #include "disp7seg.h"
 
+
 void main ( void ) 
 {
     char estado = 0;
@@ -41,16 +42,31 @@ void main ( void )
                         estado = 3;
                     break;
             case 3:
-                    t = 3000;
-                    contador = --contador % 4;
-                    disp7seg(contador);
+                    t = 6000;
                     estado = 4;
                     break;
             case 4:
+                    
                     delay( 1 );
                     --t;
                     if( t <= 0 )
-                        estado = 5;
+                        
+                    __delay_ms(1000);    
+                    PORTB = 0x7D;
+                    __delay_ms(1000);
+                    PORTB = 0x6D;
+                    __delay_ms(1000);
+                    PORTB = 0x66;
+                    __delay_ms(1000);
+                    PORTB = 0x4F;
+                    __delay_ms(1000);
+                    PORTB = 0x5B;
+                    __delay_ms(1000);
+                    PORTB = 0x06;
+                    __delay_ms(1000);
+                    PORTB = 0x3F;
+                    
+                    estado = 5;
                     break;
             case 5:
                     amarelo( 1 );
@@ -59,15 +75,24 @@ void main ( void )
                     verde_ped( 0 );
                     vermelho_ped( 1 );
                     t = 3000;
-                    contador = --contador % 4;
-                    disp7seg(contador);
                     estado = 6;
                     break;
             case 6:
                     delay( 1 );
                     --t;
                     if( t <= 0 )
-                        estado = 7;
+                        
+                    PORTB = 0x66;
+                    __delay_ms(1000);
+                    PORTB = 0x4F;
+                    __delay_ms(1000);
+                    PORTB = 0x5B;
+                    __delay_ms(1000);
+                    PORTB = 0x06;
+                    __delay_ms(1000);
+                    PORTB = 0x3F;
+                    
+                    estado = 7;
                     break;
             case 7:
                     amarelo( 0 );
@@ -76,15 +101,35 @@ void main ( void )
                     verde_ped( 1 );
                     vermelho_ped( 0 );
                     t = 8000;
-                    contador = --contador % 9;
-                    disp7seg(contador);
                     estado = 8;
                     break;
             case 8:
                    delay( 1 );
                     --t;
                     if( t <= 0 )
-                        estado = 2;
+                        
+                    PORTB = 0x6F;
+                    __delay_ms(1000);
+                    PORTB = 0x7F;    
+                    __delay_ms(1000);
+                    PORTB = 0x07;
+                    __delay_ms(1000);    
+                    PORTB = 0x7D;
+                    __delay_ms(1000);
+                    PORTB = 0x6D;
+                    __delay_ms(1000);
+                    PORTB = 0x66;
+                    __delay_ms(1000);
+                    PORTB = 0x4F;
+                    __delay_ms(1000);
+                    PORTB = 0x5B;
+                    __delay_ms(1000);
+                    PORTB = 0x06;
+                    __delay_ms(1000);
+                    PORTB = 0x3F;
+                    __delay_ms(1000);
+                    PORTB = 0;    
+                    estado = 2;
                     break;
         }
     }
